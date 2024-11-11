@@ -2,9 +2,40 @@
 
 body {
   font-family: "Mitr", sans-serif;
+  background-color: #333333;  
 }
 
-#app-name {
+#MainPageGamesPics {
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+  width:300px;
+  height:300px;
+  background-color: rgb(33 33 33 / 90%);  
+}
+.login_ {
+  color: white;
+  text-align: center;
+  font-size: 19px;
+}
+.loginBtn {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#LoginButton, #RegButton{
+  position: relative;
+  padding: 5px 22px;
+  color: rgb(45, 7, 7);
+  font-family: "Mitr", sans-serif;
+  font-size:15px;
+  font-weight: 600;
+  background-color: rgb(255, 164, 164);
+  border-radius: 15px;
+}
+
+/* #app-name {
   font-size: 2em;
   font-weight: bold;
   margin: 0;
@@ -146,4 +177,4 @@ section {
   100% {
     background: #ff0000;
   }
-}
+} */
