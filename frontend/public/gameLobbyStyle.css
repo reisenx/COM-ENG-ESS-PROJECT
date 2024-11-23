@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Mitr:wght@200;400;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing:  border-box;
+  font-family: "Mitr", sans-serif;
+}
+.choices-container {
+  display: flex;
+  justify-content: center; 
+  gap: 20px; 
+}
+
+.choices:hover {
+  transform: scale(1.2);
+  transition: transform 0.4s;
+}

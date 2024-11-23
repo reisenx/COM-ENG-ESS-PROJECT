@@ -23,6 +23,7 @@ body{
   height: auto;
   margin-bottom: 20px;
 }
+
 .login_ {
   width: 420px;
   background:rgb(218, 225, 255);
@@ -53,15 +54,21 @@ body{
 .input-box input::placeholder{
   color:rgb(133, 137, 141);
 }
-.login_ .loginBtn #LoginButton, #RegButton{
+.loginBtn button {
   width: 100%;
   height: 40px;
-  background: rgb(246, 199, 215);
+  background-color: rgb(246, 199, 215);
   border: none;
   border-radius: 15px;
   font-size: 12px;
   font-weight: 550;
   margin: 2px;
+  transition-duration: 0.8s;
+}
+
+.loginBtn button:hover {
+  background-color: rgb(255, 230, 230); 
+  /* cursor: pointer; */
 }
 #MainPageGamesPics{
   align-self:normal;
