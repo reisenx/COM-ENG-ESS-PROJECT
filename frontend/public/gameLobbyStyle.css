@@ -6,6 +6,13 @@
   box-sizing:  border-box;
   font-family: "Mitr", sans-serif;
 }
+body{
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
 .choices-container {
   display: flex;
   justify-content: center; 
@@ -15,4 +22,13 @@
 .choices:hover {
   transform: scale(1.2);
   transition: transform 0.4s;
+}
+
+.bot-container{
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center; 
+  gap: 20px; 
 }
