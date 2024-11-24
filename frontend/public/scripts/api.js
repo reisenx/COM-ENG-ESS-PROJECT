@@ -7,7 +7,7 @@ const loginUser = async (username) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ username }),
+      body: JSON.stringify({ username, action: "login" }),
     });
 
     const data = await response.json();
@@ -15,11 +15,11 @@ const loginUser = async (username) => {
       console.log("Login successful", data);
       // Handle successful login (e.g., redirect to another page or update UI)
     } else {
-      console.error("Login failed", data.message);
-      // Handle login failure (e.g., show error message)
+      throw new Error(data.message);
     }
   } catch (error) {
     console.error("Error logging in", error);
+    throw error;
   }
 };
 
@@ -30,7 +30,7 @@ const registerUser = async (username) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ username }),
+      body: JSON.stringify({ username, action: "register" }),
     });
 
     const data = await response.json();
@@ -38,11 +38,11 @@ const registerUser = async (username) => {
       console.log("Registration successful", data);
       // Handle successful registration (e.g., redirect to another page or update UI)
     } else {
-      console.error("Registration failed", data.message);
-      // Handle registration failure (e.g., show error message)
+      throw new Error(data.message);
     }
   } catch (error) {
     console.error("Error registering", error);
+    throw error;
   }
 };
 
@@ -55,3 +55,5 @@ document.getElementById("RegisterButton").addEventListener("click", () => {
   const username = document.getElementById("username_").value;
   registerUser(username);
 });
+
+export { loginUser, registerUser };
