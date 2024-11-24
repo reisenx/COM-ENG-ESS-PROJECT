@@ -11,7 +11,12 @@ body{
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: rgb(245, 255, 240);
+  /* background-color: rgb(245, 255, 240); */
+  background-image: url("res/LoginBG.png");
+  background-repeat: no-repeat;
+  background-size: 110%;
+  background-position: center;
+  overflow: hidden;
 }
 .container{
   display: flex;
@@ -21,9 +26,20 @@ body{
 #MainPageGamesPics img {
   max-width: 100%;
   height: auto;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
+  animation: scaleCycle 1s infinite;
 }
-
+@keyframes scaleCycle {
+  0% {
+    transform: scale(1);
+  }
+  20% {
+    transform: scale(1.03); 
+  }
+  100% {
+    transform: scale(1); 
+  }
+}
 .login_ {
   width: 420px;
   background:rgb(218, 225, 255);

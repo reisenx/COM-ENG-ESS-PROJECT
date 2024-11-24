@@ -3,29 +3,23 @@ const resultDisplay = document.getElementById('result');
 //initial pic
 const computerImage = document.createElement('img');
 computerImage.src = `res/rock.png`
-computerImage.width = 100;
-computerImage.height = 100;
+computerImage.width = 200;
+computerImage.height = 200;
 resultDisplay.innerHTML = '';
 resultDisplay.appendChild(computerImage);
 
 const resultContext = document.getElementById('result-text');
 const choicesArray = ['rock', 'paper', 'scissors'];
-
+const onProcess = false;
 choices.forEach(choice => {
   choice.addEventListener('click', () => {
+    disableChoices();
     const playerChoice = choice.getAttribute('id_choice');
     animateComputerChoice(playerChoice);
   });
 });
 
 function animateComputerChoice(playerChoice) {
-//   const computerImage = document.createElement('img');
-//   computerImage.width = 100;
-//   computerImage.height = 100;
-
-
-//   resultDisplay.innerHTML = ''; 
-//   resultDisplay.appendChild(computerImage);
 
   let animationIndex = 0;
   const animationInterval = setInterval(() => {
@@ -44,9 +38,24 @@ function animateComputerChoice(playerChoice) {
 
     const resultText = `You chose ${playerChoice}, computer chose ${computerChoice}. ${winner}`;
     resultContext.innerHTML = resultText;
+
+    enableChoices();
   }, 1000);
 }
+function disableChoices() {
+  choices.forEach(choice => {
+    choice.disabled = true;
+    choice.classList.add('disabled'); 
+  });
+}
 
+
+function enableChoices() {
+  choices.forEach(choice => {
+    choice.disabled = false;
+    choice.classList.remove('disabled'); 
+  });
+}
 function determineWinner(player, computer) {
   if (player === computer) {
     return "It's a tie!";
@@ -58,5 +67,5 @@ function determineWinner(player, computer) {
   ) {
     return "You win!";
   }
-  return "Computer wins!";
+  return "You Lose!";
 }
