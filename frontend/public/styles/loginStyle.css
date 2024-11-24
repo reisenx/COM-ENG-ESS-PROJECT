@@ -47,7 +47,10 @@ body {
   width: 420px;
   background: rgb(218, 225, 255);
   border-radius: 5px;
-  padding: 20px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 .login_ h1 {
   font-size: 36px;
@@ -72,13 +75,18 @@ body {
 .input-box input::placeholder {
   color: rgb(133, 137, 141);
 }
+.loginBtn {
+  display: flex;
+  justify-content: space-between;
+}
+
 .loginBtn button {
-  width: 100%;
+  width: 48%;
   height: 40px;
   background-color: rgb(246, 199, 215);
   border: none;
   border-radius: 15px;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 550;
   margin: 2px;
   transition-duration: 0.8s;
@@ -87,4 +95,16 @@ body {
 .loginBtn button:hover {
   background-color: rgb(255, 230, 230);
   /* cursor: pointer; */
+}
+
+.loginResponse {
+  color: red;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.loginResponse h3 {
+  margin: 0;
+  visibility: hidden;
 }
