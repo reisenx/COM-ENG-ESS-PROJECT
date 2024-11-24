@@ -63,12 +63,12 @@ const getUserData = async () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("LoginButton").addEventListener("click", () => {
-    const username = document.getElementById("username_").value;
+    const username = document.getElementById("username_");
     loginUser(username);
   });
 
   document.getElementById("RegisterButton").addEventListener("click", () => {
-    const username = document.getElementById("username_").value;
+    const username = document.getElementById("username_");
     registerUser(username);
   });
 });

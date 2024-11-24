@@ -11,8 +11,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     try {
       const userData = await getUserData(username); // Pass username to getUserData
       console.log("Fetched user data:", userData); // Debug log
-      welcomeUserSpan.textContent += userData.username;
-      totalScoreSpan.textContent += userData.score;
+
+      // Find the user object that matches the username
+      const user = userData.find((user) => user.username === username);
+      console.log("Fetched user data:", user); // Debug log
+
+      welcomeUserSpan.textContent += user.username;
+      totalScoreSpan.textContent += user.score;
     } catch (error) {
       console.error("Error fetching user data", error);
     }
