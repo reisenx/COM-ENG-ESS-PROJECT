@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const username = usernameInput.value.trim();
     try {
       await loginUser(username);
+      localStorage.setItem("username", username); // Store username in local storage
       window.location.href = "home.html";
     } catch (error) {
       loginResponse.textContent = "Please register your account first";
