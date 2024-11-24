@@ -83,22 +83,3 @@ export const getLeaderboard = async (req, res) => {
     res.status(500).json({ message: "Error fetching leaderboard" });
   }
 };
-
-// Update username
-export const updateUsername = async (req, res) => {
-  const { id } = req.params;
-  const { newUsername } = req.body;
-
-  try {
-    const user = await User.findById(id);
-    if (!user) {
-      return res.status(404).json({ message: "User not found" });
-    }
-
-    user.username = newUsername;
-    await user.save();
-    res.status(200).json({ message: "Username updated successfully", user });
-  } catch (error) {
-    res.status(500).json({ message: "Error updating username" });
-  }
-};

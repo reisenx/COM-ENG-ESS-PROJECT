@@ -1,8 +1,8 @@
-import express from "express";
 import cors from "cors";
+import express from "express";
 
-import UserRoute from "./routes/userRoute.js";
-import LeaderboardRoute from "./routes/leaderboardRoute.js";
+import LeaderboardRoute from "routes/leaderboardRoute.js";
+import UserRoute from "routes/userRoute.js";
 
 const app = express();
 
