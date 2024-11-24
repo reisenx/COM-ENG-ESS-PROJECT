@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Mitr:wght@200;400;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing:  border-box;
+  font-family: "Mitr", sans-serif;
+}
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  /* background-color: rgb(245, 255, 240); */
+  background-image: url("res/LoginBG.png");
+  background-repeat: no-repeat;
+  background-size: 110%;
+  background-position: center;
+  overflow: hidden;
+}
+#MainPageGamesPics img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 0px;
+    animation: scaleCycle 1s infinite;
+}
+@keyframes scaleCycle {
+    0% {
+        transform: scale(1);
+    }
+    20% {
+        transform: scale(1.03); 
+    }
+    100% {
+        transform: scale(1); 
+    }
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.menuBtn button {
+    width: 215px;
+    height: 60px;
+    background-color: rgb(246, 199, 215);
+    border: none;
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: 550;
+    margin: 2px;
+    transition-duration: 0.8s;
+}
+  
+.menuBtn button:hover {
+    background-color: rgb(255, 230, 230); 
+    /* cursor: pointer; */
+}
+
+

@@ -40,6 +40,9 @@ body{
     transform: scale(1); 
   }
 }
+#MainPageGamesPics{
+  align-self:normal;
+}
 .login_ {
   width: 420px;
   background:rgb(218, 225, 255);
@@ -85,7 +88,4 @@ body{
 .loginBtn button:hover {
   background-color: rgb(255, 230, 230); 
   /* cursor: pointer; */
-}
-#MainPageGamesPics{
-  align-self:normal;
 }
