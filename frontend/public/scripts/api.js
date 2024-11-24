@@ -1,4 +1,4 @@
-import { BACKEND_URL } from "../config.js";
+import { BACKEND_URL } from "./config.js"; // Adjust the path if necessary
 
 const loginUser = async (username) => {
   try {
