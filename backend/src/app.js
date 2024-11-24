@@ -13,11 +13,6 @@ app.use(express.urlencoded({ extended: true }));
 // allow request from other origin (Frontend which is at different port)
 app.use(cors());
 
-app.use((req, res, next) => {
-  console.log(`Request URL: ${req.url}`);
-  next();
-});
-
 // use routes
 app.use("/users", UserRoute);
 app.use("/leaderboard", LeaderboardRoute);

@@ -3,9 +3,9 @@ import * as userController from "../controllers/userController.js";
 
 const router = express.Router();
 
-router.post("/register", userController.registerUser);
-router.post("/login", userController.loginUser);
-router.post("/play", userController.playGame);
-router.get("/leaderboard", userController.getLeaderboard);
+router.post("/", userController.registerUser);
+router.post("/", userController.loginUser);
+router.post("/", userController.playGame);
+router.get("/", userController.getLeaderboard);
 
 export default router;

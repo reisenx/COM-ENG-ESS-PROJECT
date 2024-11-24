@@ -2,7 +2,7 @@ import { BACKEND_URL } from "../config.js";
 
 const loginUser = async (username) => {
   try {
-    const response = await fetch(`${BACKEND_URL}/users/login`, {
+    const response = await fetch(`${BACKEND_URL}/users`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -25,7 +25,7 @@ const loginUser = async (username) => {
 
 const registerUser = async (username) => {
   try {
-    const response = await fetch(`${BACKEND_URL}/users/register`, {
+    const response = await fetch(`${BACKEND_URL}/users`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
