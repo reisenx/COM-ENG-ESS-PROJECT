@@ -4,8 +4,6 @@ import * as userController from "../controllers/userController.js";
 const router = express.Router();
 
 router.post("/", userController.handleUser);
-
-// Add a route to handle GET requests to /users
 router.get("/", userController.getUsers);
 
 export default router;

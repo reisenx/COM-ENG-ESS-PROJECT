@@ -6,24 +6,50 @@
   box-sizing: border-box;
   font-family: "Mitr", sans-serif;
 }
+
 body {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  /* background-color: rgb(245, 255, 240); */
   background-image: url("../res/LoginBG.png");
   background-repeat: no-repeat;
   background-size: 110%;
   background-position: center;
   overflow: hidden;
 }
+
+.header {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.welcome-message {
+  text-align: center;
+  color: #333;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+#MainPageGamesPics {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+}
+
 #MainPageGamesPics img {
   max-width: 100%;
   height: auto;
   margin-bottom: 0px;
   animation: scaleCycle 1s infinite;
 }
+
 @keyframes scaleCycle {
   0% {
     transform: scale(1);
@@ -35,11 +61,21 @@ body {
     transform: scale(1);
   }
 }
+
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
+.menu {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .menuBtn button {
   width: 215px;
   height: 60px;
@@ -53,6 +89,21 @@ body {
 }
 
 .menuBtn button:hover {
+  background-color: rgb(255, 230, 230);
+  /* cursor: pointer; */
+}
+
+#logoutButton {
+  background-color: rgb(246, 199, 215);
+  border: none;
+  border-radius: 15px;
+  font-size: 16px;
+  font-weight: 550;
+  padding: 10px 20px;
+  transition-duration: 0.8s;
+}
+
+#logoutButton:hover {
   background-color: rgb(255, 230, 230);
   /* cursor: pointer; */
 }

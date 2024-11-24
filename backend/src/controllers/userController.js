@@ -6,7 +6,6 @@ export const handleUser = async (req, res) => {
 
   try {
     if (action === "register") {
-      // Check for duplicate username
       const existingUser = await User.findOne({ username });
       if (existingUser) {
         return res.status(400).json({ message: "Username already exists" });
@@ -38,9 +37,21 @@ export const getUsers = async (req, res) => {
   }
 };
 
+export const getUserData = async (req, res) => {
+  try {
+    const user = await User.findOne({ username: req.query.username });
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching user data" });
+  }
+};
+
 // Play the game
 export const playGame = async (req, res) => {
-  const { username, choice } = req.body; // `choice` is rock/paper/scissors
+  const { username, choice } = req.body;
   const botChoices = ["rock", "paper", "scissors"];
   const botChoice = botChoices[Math.floor(Math.random() * 3)];
 

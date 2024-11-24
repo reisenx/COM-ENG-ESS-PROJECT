@@ -46,6 +46,21 @@ const registerUser = async (username) => {
   }
 };
 
+const getUserData = async () => {
+  try {
+    const response = await fetch(`${BACKEND_URL}/users`);
+    const data = await response.json();
+    if (response.ok) {
+      return data;
+    } else {
+      throw new Error(data.message);
+    }
+  } catch (error) {
+    console.error("Error fetching user data", error);
+    throw error;
+  }
+};
+
 document.getElementById("LoginButton").addEventListener("click", () => {
   const username = document.getElementById("username_").value;
   loginUser(username);
@@ -56,4 +71,4 @@ document.getElementById("RegisterButton").addEventListener("click", () => {
   registerUser(username);
 });
 
-export { loginUser, registerUser };
+export { getUserData, loginUser, registerUser };

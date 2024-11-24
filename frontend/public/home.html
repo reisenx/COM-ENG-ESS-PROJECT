@@ -6,6 +6,11 @@
     <link rel="stylesheet" href="styles/homeStyle.css" />
   </head>
   <body>
+    <div class="header">
+      <button id="logoutButton" onclick="location.href='login.html'">
+        Logout
+      </button>
+    </div>
     <div class="container">
       <div id="MainPageGamesPics">
         <img
@@ -17,6 +22,11 @@
         />
       </div>
       <div class="menu">
+        <div class="welcome-message">
+          <span id="welcomeUser">Welcome, </span>
+          <br />
+          <span id="totalScore">Total Score: </span>
+        </div>
         <div class="menuBtn">
           <button id="playButton" onclick="location.href='gameLobby.html'">
             Play
@@ -31,5 +41,6 @@
       </div>
     </div>
     <script type="module" src="scripts/mouseMove.js"></script>
+    <script type="module" src="scripts/home.js"></script>
   </body>
 </html>
