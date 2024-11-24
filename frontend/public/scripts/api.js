@@ -46,9 +46,9 @@ const registerUser = async (username) => {
   }
 };
 
-const getUserData = async (username) => {
+const getUserData = async () => {
   try {
-    const response = await fetch(`${BACKEND_URL}/users?username=${username}`);
+    const response = await fetch(`${BACKEND_URL}/users`);
     const data = await response.json();
     if (response.ok) {
       return data;
@@ -62,22 +62,15 @@ const getUserData = async (username) => {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  const loginButton = document.getElementById("LoginButton");
-  const registerButton = document.getElementById("RegisterButton");
+  document.getElementById("LoginButton").addEventListener("click", () => {
+    const username = document.getElementById("username_").value;
+    loginUser(username);
+  });
 
-  if (loginButton && registerButton) {
-    loginButton.addEventListener("click", () => {
-      const username = document.querySelector("username_");
-      console.log("Username entered for login:", username);
-      loginUser(username);
-    });
-
-    registerButton.addEventListener("click", () => {
-      const username = document.querySelector("username_");
-      console.log("Username entered for registration:", username);
-      registerUser(username);
-    });
-  }
+  document.getElementById("RegisterButton").addEventListener("click", () => {
+    const username = document.getElementById("username_").value;
+    registerUser(username);
+  });
 });
 
 export { getUserData, loginUser, registerUser };
