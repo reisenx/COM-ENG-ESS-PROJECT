@@ -67,12 +67,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (loginButton && registerButton) {
     loginButton.addEventListener("click", () => {
-      const username = document.querySelector(".username-input").value;
+      const username = document.querySelector(".username_").value;
       loginUser(username);
     });
 
     registerButton.addEventListener("click", () => {
-      const username = document.querySelector(".username-input").value;
+      const username = document.querySelector(".username_").value;
       registerUser(username);
     });
   }

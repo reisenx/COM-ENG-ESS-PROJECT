@@ -3,7 +3,7 @@ import { loginUser, registerUser } from "./api.js";
 document.addEventListener("DOMContentLoaded", () => {
   const loginButton = document.getElementById("LoginButton");
   const registerButton = document.getElementById("RegisterButton");
-  const usernameInput = document.querySelector(".username-input");
+  const usernameInput = document.querySelector(".username_");
   const loginResponse = document.querySelector(".loginResponse h3");
 
   loginButton.addEventListener("click", async () => {
