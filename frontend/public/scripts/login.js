@@ -8,24 +8,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
   loginButton.addEventListener("click", async () => {
     const username = usernameInput.value.trim();
-    try {
-      await loginUser(username);
-      localStorage.setItem("username", username); // Store username in local storage
-      window.location.href = "home.html";
-    } catch (error) {
-      loginResponse.textContent = "Please register your account first";
+    console.log("Username entered for login:", username); // Debug log
+    if (username) {
+      try {
+        await loginUser(username);
+        localStorage.setItem("username", username); // Store username in local storage
+        window.location.href = "home.html";
+      } catch (error) {
+        loginResponse.textContent = "Please register your account first";
+        loginResponse.style.visibility = "visible";
+      }
+    } else {
+      loginResponse.textContent = "Username cannot be empty";
       loginResponse.style.visibility = "visible";
     }
   });
 
   registerButton.addEventListener("click", async () => {
     const username = usernameInput.value.trim();
-    try {
-      await registerUser(username);
-      loginResponse.textContent = "Account created. Please login.";
-      loginResponse.style.visibility = "visible";
-    } catch (error) {
-      loginResponse.textContent = "The username has already been used";
+    console.log("Username entered for registration:", username); // Debug log
+    if (username) {
+      try {
+        await registerUser(username);
+        loginResponse.textContent = "Account created. Please login.";
+        loginResponse.style.visibility = "visible";
+      } catch (error) {
+        loginResponse.textContent = "The username has already been used";
+        loginResponse.style.visibility = "visible";
+      }
+    } else {
+      loginResponse.textContent = "Username cannot be empty";
       loginResponse.style.visibility = "visible";
     }
   });
