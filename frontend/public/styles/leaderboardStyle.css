@@ -3,110 +3,109 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing:  border-box;
+  box-sizing: border-box;
   font-family: "Mitr", sans-serif;
 }
-body{
+body {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   /* background-color: rgb(245, 255, 240); */
-  background-image: url("res/LoginBG.png");
+  background-image: url("../res/LoginBG.png");
   background-repeat: no-repeat;
   background-size: 110%;
   background-position: center;
   overflow: hidden;
 }
 #MainPageGamesPics img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 0px;
-    animation: scaleCycle 1s infinite;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 0px;
+  animation: scaleCycle 1s infinite;
 }
 @keyframes scaleCycle {
-    0% {
-        transform: scale(1);
-    }
-    20% {
-        transform: scale(1.03); 
-    }
-    100% {
-        transform: scale(1); 
-    }
+  0% {
+    transform: scale(1);
+  }
+  20% {
+    transform: scale(1.03);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 .container {
-    display: flex;
-    flex-direction: column; /* Stack items vertically */
-    align-items: center;    /* Center align items */
-    margin-top: 20px;
-  }
-  
-  h2 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 10px; /* Space between heading and leaderboard */
-    font-size: 1.5em;     /* Adjust font size for heading */
-  }
-  
-  .leaderboard {
-    width: 500px;                /* Full width inside the container */ 
-    height: calc(5 * 48px);     /* Display 5 rows (approx. 48px per row) */
-    overflow-y: auto;           /* Enable vertical scrolling */
-    border: 1px solid #ccc;     /* Add a border for visual distinction */
-    border-radius: 10px;        /* Rounded corners for aesthetics */
-    padding: 10px;
-    background-color: #f9f9f9;  /* Light background for contrast */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-  }
-  
-  #leaderboard-list {
-    list-style: none; /* Remove default bullet points */
-    padding: 0;       /* Remove default padding */
-    margin: 0;        /* Remove default margin */
-  }
-  
-  #leaderboard-list li {
-    padding: 10px;
-    border-bottom: 1px solid #ccc; /* Add a separator between items */
-    font-size: 1em;
-    color: #555;
-    line-height: 1.5; /* Improve readability */
-  }
-  
-  #leaderboard-list li:last-child {
-    border-bottom: none; /* Remove border from the last item */
-  }
-  
-  /* Separate current user section */
-  .current-user-container {
-    margin-top: 15px;
-    text-align: center;
-    color: #555;
-    font-size: 1em;
-    font-weight: bold;
-    background-color: #f1f1f1; /* Light background for separation */
-    border: 1px solid #ccc;    /* Border for distinction */
-    border-radius: 5px;        /* Rounded corners */
-    padding: 10px;
-    width: 100%;
-    max-width: 300px;
-  }
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center align items */
+  margin-top: 20px;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 10px; /* Space between heading and leaderboard */
+  font-size: 1.5em; /* Adjust font size for heading */
+}
+
+.leaderboard {
+  width: 500px; /* Full width inside the container */
+  height: calc(5 * 48px); /* Display 5 rows (approx. 48px per row) */
+  overflow-y: auto; /* Enable vertical scrolling */
+  border: 1px solid #ccc; /* Add a border for visual distinction */
+  border-radius: 10px; /* Rounded corners for aesthetics */
+  padding: 10px;
+  background-color: #f9f9f9; /* Light background for contrast */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+#leaderboard-list {
+  list-style: none; /* Remove default bullet points */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+}
+
+#leaderboard-list li {
+  padding: 10px;
+  border-bottom: 1px solid #ccc; /* Add a separator between items */
+  font-size: 1em;
+  color: #555;
+  line-height: 1.5; /* Improve readability */
+}
+
+#leaderboard-list li:last-child {
+  border-bottom: none; /* Remove border from the last item */
+}
+
+/* Separate current user section */
+.current-user-container {
+  margin-top: 15px;
+  text-align: center;
+  color: #555;
+  font-size: 1em;
+  font-weight: bold;
+  background-color: #f1f1f1; /* Light background for separation */
+  border: 1px solid #ccc; /* Border for distinction */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px;
+  width: 100%;
+  max-width: 300px;
+}
 
 .backBtn button {
-    width: 100px;
-    height: 40px;
-    background-color: rgb(246, 199, 215);
-    border: none;
-    border-radius: 15px;
-    font-size: 12px;
-    font-weight: 550;
-    margin: 2px;
-    transition-duration: 0.8s;
+  width: 100px;
+  height: 40px;
+  background-color: rgb(246, 199, 215);
+  border: none;
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: 550;
+  margin: 2px;
+  transition-duration: 0.8s;
 }
 
 .backBtn button:hover {
-    background-color: rgb(255, 230, 230); 
-    /* cursor: pointer; */
+  background-color: rgb(255, 230, 230);
+  /* cursor: pointer; */
 }
-

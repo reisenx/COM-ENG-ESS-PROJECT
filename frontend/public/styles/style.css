@@ -3,22 +3,22 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing:  border-box;
+  box-sizing: border-box;
   font-family: "Mitr", sans-serif;
 }
-body{
+body {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   /* background-color: rgb(245, 255, 240); */
-  background-image: url("res/LoginBG.png");
+  background-image: url("../res/LoginBG.png");
   background-repeat: no-repeat;
   background-size: 110%;
   background-position: center;
   overflow: hidden;
 }
-.container{
+.container {
   display: flex;
   align-items: center;
   gap: 20px;
@@ -34,44 +34,43 @@ body{
     transform: scale(1);
   }
   20% {
-    transform: scale(1.03); 
+    transform: scale(1.03);
   }
   100% {
-    transform: scale(1); 
+    transform: scale(1);
   }
 }
-#MainPageGamesPics{
-  align-self:normal;
+#MainPageGamesPics {
+  align-self: normal;
 }
 .login_ {
   width: 420px;
-  background:rgb(218, 225, 255);
+  background: rgb(218, 225, 255);
   border-radius: 5px;
   padding: 20px;
 }
-.login_ h1{
+.login_ h1 {
   font-size: 36px;
   text-align: center;
 }
-.login_ .input-box{
+.login_ .input-box {
   width: 100%;
   height: 30px;
   margin: 10px 0px;
-  
 }
-.input-box input{
+.input-box input {
   width: 100%;
   height: 100%;
   background-color: aliceblue;
   border: none;
   outline: none;
-  border: 2px solid rgba(255, 255, 255, .2);
+  border: 2px solid rgba(255, 255, 255, 0.2);
   border-radius: 10px;
   font-size: 15px;
   padding: 0px 15px 0px 15px;
 }
-.input-box input::placeholder{
-  color:rgb(133, 137, 141);
+.input-box input::placeholder {
+  color: rgb(133, 137, 141);
 }
 .loginBtn button {
   width: 100%;
@@ -86,6 +85,6 @@ body{
 }
 
 .loginBtn button:hover {
-  background-color: rgb(255, 230, 230); 
+  background-color: rgb(255, 230, 230);
   /* cursor: pointer; */
 }

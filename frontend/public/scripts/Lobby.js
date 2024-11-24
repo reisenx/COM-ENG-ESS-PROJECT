@@ -1,38 +1,40 @@
-const choices = document.querySelectorAll('.choices');
-const resultDisplay = document.getElementById('result');
+const choices = document.querySelectorAll(".choices");
+const resultDisplay = document.getElementById("result");
 //initial pic
-const computerImage = document.createElement('img');
-computerImage.src = `res/rock.png`
+const computerImage = document.createElement("img");
+computerImage.src = `res/rock.png`;
 computerImage.width = 200;
 computerImage.height = 200;
-resultDisplay.innerHTML = '';
+resultDisplay.innerHTML = "";
 resultDisplay.appendChild(computerImage);
 
-const resultContext = document.getElementById('result-text');
-const choicesArray = ['rock', 'paper', 'scissors'];
+const resultContext = document.getElementById("result-text");
+const choicesArray = ["rock", "paper", "scissors"];
 const onProcess = false;
-choices.forEach(choice => {
-  choice.addEventListener('click', () => {
+choices.forEach((choice) => {
+  choice.addEventListener("click", () => {
     disableChoices();
-    const playerChoice = choice.getAttribute('id_choice');
+    const playerChoice = choice.getAttribute("id_choice");
     animateComputerChoice(playerChoice);
   });
 });
 
 function animateComputerChoice(playerChoice) {
-
   let animationIndex = 0;
   const animationInterval = setInterval(() => {
     const randomChoice = choicesArray[animationIndex];
-    computerImage.src = `res/${randomChoice}.png`; 
+    computerImage.src = `res/${randomChoice}.png`;
     animationIndex = (animationIndex + 1) % choicesArray.length;
-  }, 50); 
+  }, 50);
 
   setTimeout(() => {
-    clearInterval(animationInterval); 
+    clearInterval(animationInterval);
 
-    const computerChoice = choicesArray[Math.floor((Math.random() * choicesArray.length * 29 * 571)%3)];
-    computerImage.src = `res/${computerChoice}.png`; 
+    const computerChoice =
+      choicesArray[
+        Math.floor((Math.random() * choicesArray.length * 29 * 571) % 3)
+      ];
+    computerImage.src = `res/${computerChoice}.png`;
 
     const winner = determineWinner(playerChoice, computerChoice);
 
@@ -43,17 +45,16 @@ function animateComputerChoice(playerChoice) {
   }, 1000);
 }
 function disableChoices() {
-  choices.forEach(choice => {
+  choices.forEach((choice) => {
     choice.disabled = true;
-    choice.classList.add('disabled'); 
+    choice.classList.add("disabled");
   });
 }
 
-
 function enableChoices() {
-  choices.forEach(choice => {
+  choices.forEach((choice) => {
     choice.disabled = false;
-    choice.classList.remove('disabled'); 
+    choice.classList.remove("disabled");
   });
 }
 function determineWinner(player, computer) {
@@ -61,9 +62,9 @@ function determineWinner(player, computer) {
     return "It's a tie!";
   }
   if (
-    (player === 'rock' && computer === 'scissors') ||
-    (player === 'paper' && computer === 'rock') ||
-    (player === 'scissors' && computer === 'paper')
+    (player === "rock" && computer === "scissors") ||
+    (player === "paper" && computer === "rock") ||
+    (player === "scissors" && computer === "paper")
   ) {
     return "You win!";
   }
