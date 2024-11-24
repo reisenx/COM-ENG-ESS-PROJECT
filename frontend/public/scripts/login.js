@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   registerButton.addEventListener("click", async () => {
-    const username = usernameInput.value.trim();
+    const username = usernameInput.trim();
     console.log("Username entered for registration:", username); // Debug log
     if (username) {
       try {
