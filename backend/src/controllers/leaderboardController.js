@@ -1,34 +1,110 @@
-const express = require("express");
-const mongoose = require("mongoose");
+import Leaderboard from "../models/leaderboardModel.js";
 
-const app = express();
-const port = 3000;
-
-// Connect to MongoDB
-mongoose.connect("mongodb://localhost:27017/leaderboard", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-
-// Define a schema and model for the leaderboard
-const leaderboardSchema = new mongoose.Schema({
-  username: String,
-  score: Number,
-});
-
-const Leaderboard = mongoose.model("Leaderboard", leaderboardSchema);
-
-// Endpoint to get the leaderboard
-app.get("/leaderboard", async (req, res) => {
+// Get all leaderboard entries
+export const getAllEntries = async (req, res) => {
   try {
-    const leaderboard = await Leaderboard.find().sort({ score: -1 }).limit(10);
-    res.json(leaderboard);
+    const entries = await Leaderboard.find();
+    res.status(200).json({
+      status: "success",
+      data: {
+        entries,
+      },
+    });
   } catch (err) {
-    res.status(500).send(err);
+    res.status(500).json({
+      status: "error",
+      message: err.message,
+    });
   }
-});
+};
 
-// Start the server
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
-});
+// Get a single leaderboard entry by ID
+export const getEntryById = async (req, res) => {
+  try {
+    const entry = await Leaderboard.findById(req.params.id);
+    if (!entry) {
+      return res.status(404).json({
+        status: "fail",
+        message: "No entry found with that ID",
+      });
+    }
+    res.status(200).json({
+      status: "success",
+      data: {
+        entry,
+      },
+    });
+  } catch (err) {
+    res.status(500).json({
+      status: "error",
+      message: err.message,
+    });
+  }
+};
+
+// Create a new leaderboard entry
+export const createEntry = async (req, res) => {
+  try {
+    const newEntry = await Leaderboard.create(req.body);
+    res.status(201).json({
+      status: "success",
+      data: {
+        entry: newEntry,
+      },
+    });
+  } catch (err) {
+    res.status(500).json({
+      status: "error",
+      message: err.message,
+    });
+  }
+};
+
+// Update an existing leaderboard entry by ID
+export const updateEntry = async (req, res) => {
+  try {
+    const entry = await Leaderboard.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true,
+    });
+    if (!entry) {
+      return res.status(404).json({
+        status: "fail",
+        message: "No entry found with that ID",
+      });
+    }
+    res.status(200).json({
+      status: "success",
+      data: {
+        entry,
+      },
+    });
+  } catch (err) {
+    res.status(500).json({
+      status: "error",
+      message: err.message,
+    });
+  }
+};
+
+// Delete a leaderboard entry by ID
+export const deleteEntry = async (req, res) => {
+  try {
+    const entry = await Leaderboard.findByIdAndDelete(req.params.id);
+    if (!entry) {
+      return res.status(404).json({
+        status: "fail",
+        message: "No entry found with that ID",
+      });
+    }
+    res.status(204).json({
+      status: "success",
+      data: null,
+    });
+  } catch (err) {
+    res.status(500).json({
+      status: "error",
+      message: err.message,
+    });
+  }
+};

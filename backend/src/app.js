@@ -1,8 +1,8 @@
 import express from "express";
 import cors from "cors";
 
-import ItemRoute from "./routes/itemRoute.js";
-import MemberRoute from "./routes/memberRoute.js";
+import UserRoute from "./routes/userRoute.js";
+import LeaderboardRoute from "./routes/leaderboardRoute.js";
 
 const app = express();
 
@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 // use routes
-app.use("/items", ItemRoute);
-app.use("/members", MemberRoute);
+app.use("/users", UserRoute);
+app.use("/leaderboard", LeaderboardRoute);
 
 export default app;

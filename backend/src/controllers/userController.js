@@ -1,7 +1,7 @@
-const User = require("../models/userModel");
+import User from "../models/userModel.js";
 
 // Register a new user
-const registerUser = async (req, res) => {
+export const registerUser = async (req, res) => {
   const { username } = req.body;
 
   try {
@@ -20,7 +20,7 @@ const registerUser = async (req, res) => {
 };
 
 // Login user
-const loginUser = async (req, res) => {
+export const loginUser = async (req, res) => {
   const { username } = req.body;
 
   try {
@@ -35,7 +35,7 @@ const loginUser = async (req, res) => {
 };
 
 // Play the game
-const playGame = async (req, res) => {
+export const playGame = async (req, res) => {
   const { username, choice } = req.body; // `choice` is rock/paper/scissors
   const botChoices = ["rock", "paper", "scissors"];
   const botChoice = botChoices[Math.floor(Math.random() * 3)];
@@ -75,7 +75,7 @@ const playGame = async (req, res) => {
 };
 
 // Get leaderboard
-const getLeaderboard = async (req, res) => {
+export const getLeaderboard = async (req, res) => {
   try {
     const leaderboard = await User.find().sort({ score: -1 }).limit(10);
     res.status(200).json(leaderboard);
@@ -84,9 +84,21 @@ const getLeaderboard = async (req, res) => {
   }
 };
 
-module.exports = {
-  registerUser,
-  loginUser,
-  playGame,
-  getLeaderboard,
+// Update username
+export const updateUsername = async (req, res) => {
+  const { id } = req.params;
+  const { newUsername } = req.body;
+
+  try {
+    const user = await User.findById(id);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    user.username = newUsername;
+    await user.save();
+    res.status(200).json({ message: "Username updated successfully", user });
+  } catch (error) {
+    res.status(500).json({ message: "Error updating username" });
+  }
 };
