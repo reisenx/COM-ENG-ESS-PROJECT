@@ -61,14 +61,16 @@ const getUserData = async () => {
   }
 };
 
-document.getElementById("LoginButton").addEventListener("click", () => {
-  const username = document.getElementById("username_").value;
-  loginUser(username);
-});
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("LoginButton").addEventListener("click", () => {
+    const username = document.getElementById("username_").value;
+    loginUser(username);
+  });
 
-document.getElementById("RegisterButton").addEventListener("click", () => {
-  const username = document.getElementById("username_").value;
-  registerUser(username);
+  document.getElementById("RegisterButton").addEventListener("click", () => {
+    const username = document.getElementById("username_").value;
+    registerUser(username);
+  });
 });
 
 export { getUserData, loginUser, registerUser };
