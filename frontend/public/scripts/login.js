@@ -1,29 +1,30 @@
+import { loginUser, registerUser } from "./api.js";
+
 document.addEventListener("DOMContentLoaded", () => {
   const loginButton = document.getElementById("LoginButton");
   const registerButton = document.getElementById("RegisterButton");
   const usernameInput = document.getElementById("username_");
   const loginResponse = document.querySelector(".loginResponse h3");
 
-  const existingUsers = ["user1", "user2", "user3"]; // Example existing users
-
-  loginButton.addEventListener("click", () => {
+  loginButton.addEventListener("click", async () => {
     const username = usernameInput.value.trim();
-    if (existingUsers.includes(username)) {
+    try {
+      await loginUser(username);
       window.location.href = "home.html";
-    } else {
+    } catch (error) {
       loginResponse.textContent = "Please register your account first";
       loginResponse.style.visibility = "visible";
     }
   });
 
-  registerButton.addEventListener("click", () => {
+  registerButton.addEventListener("click", async () => {
     const username = usernameInput.value.trim();
-    if (existingUsers.includes(username)) {
-      loginResponse.textContent = "The username has already used";
-      loginResponse.style.visibility = "visible";
-    } else {
-      existingUsers.push(username);
+    try {
+      await registerUser(username);
       loginResponse.textContent = "Account created. Please login.";
+      loginResponse.style.visibility = "visible";
+    } catch (error) {
+      loginResponse.textContent = "The username has already been used";
       loginResponse.style.visibility = "visible";
     }
   });
