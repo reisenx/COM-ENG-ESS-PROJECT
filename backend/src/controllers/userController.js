@@ -29,6 +29,13 @@ export const handleUser = async (req, res) => {
   }
 };
 
+export const getUsers = (req, res) => {
+  // Code to retrieve users from the database
+  // For example:
+  const users = []; // Replace with actual database query
+  res.json(users);
+};
+
 // Play the game
 export const playGame = async (req, res) => {
   const { username, choice } = req.body; // `choice` is rock/paper/scissors
