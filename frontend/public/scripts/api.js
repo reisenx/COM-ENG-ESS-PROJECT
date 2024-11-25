@@ -61,6 +61,21 @@ const getUserData = async () => {
   }
 };
 
+const getLeaderboardData = async () => {
+  try {
+    const response = await fetch(`${BACKEND_URL}/users`);
+    const data = await response.json();
+    if (response.ok) {
+      return data;
+    } else {
+      throw new Error(data.message);
+    }
+  } catch (error) {
+    console.error("Error fetching leaderboard data", error);
+    throw error;
+  }
+};
+
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("LoginButton").addEventListener("click", () => {
     const username = document.getElementById("username_");
@@ -73,4 +88,4 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-export { getUserData, loginUser, registerUser };
+export { getLeaderboardData, getUserData, loginUser, registerUser };

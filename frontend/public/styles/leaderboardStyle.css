@@ -6,24 +6,26 @@
   box-sizing: border-box;
   font-family: "Mitr", sans-serif;
 }
+
 body {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  /* background-color: rgb(245, 255, 240); */
   background-image: url("../res/LoginBG.png");
   background-repeat: no-repeat;
   background-size: 110%;
   background-position: center;
   overflow: hidden;
 }
+
 #MainPageGamesPics img {
   max-width: 100%;
   height: auto;
   margin-bottom: 0px;
   animation: scaleCycle 1s infinite;
 }
+
 @keyframes scaleCycle {
   0% {
     transform: scale(1);
@@ -32,50 +34,91 @@ body {
     transform: scale(1.03);
   }
   100% {
-    transform: scale(1);
+    transform: scale(1.1);
   }
 }
+
 .container {
   display: flex;
-  flex-direction: column; /* Stack items vertically */
-  align-items: center; /* Center align items */
+  flex-direction: column;
+  align-items: center;
   margin-top: 20px;
 }
 
 h2 {
   text-align: center;
   color: #333;
-  margin-bottom: 10px; /* Space between heading and leaderboard */
-  font-size: 1.5em; /* Adjust font size for heading */
+  margin-bottom: 10px;
+  font-size: 2em;
 }
 
 .leaderboard {
-  width: 500px; /* Full width inside the container */
-  height: calc(5 * 48px); /* Display 5 rows (approx. 48px per row) */
-  overflow-y: auto; /* Enable vertical scrolling */
-  border: 1px solid #ccc; /* Add a border for visual distinction */
-  border-radius: 10px; /* Rounded corners for aesthetics */
+  width: 500px;
+  height: calc(5 * 48px);
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  border-radius: 10px;
   padding: 10px;
-  background-color: #f9f9f9; /* Light background for contrast */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
+}
+
+.table-container {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.leaderboard table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.leaderboard th,
+.leaderboard td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.leaderboard th {
+  background-color: #f2f2f2;
+  font-weight: bold;
 }
 
 #leaderboard-list {
-  list-style: none; /* Remove default bullet points */
-  padding: 0; /* Remove default padding */
-  margin: 0; /* Remove default margin */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
 }
 
 #leaderboard-list li {
+  display: flex;
+  justify-content: space-between;
   padding: 10px;
-  border-bottom: 1px solid #ccc; /* Add a separator between items */
+  border-bottom: 1px solid #ccc;
   font-size: 1em;
   color: #555;
-  line-height: 1.5; /* Improve readability */
+  line-height: 1.5;
 }
 
-#leaderboard-list li:last-child {
-  border-bottom: none; /* Remove border from the last item */
+#leaderboard-list li.header {
+  font-weight: bold;
+  background-color: #f2f2f2;
+}
+
+#leaderboard-list li span {
+  flex: 1;
+  text-align: center;
+}
+
+#leaderboard-list li span:first-child {
+  text-align: left;
+}
+
+#leaderboard-list li span:last-child {
+  text-align: right;
 }
 
 /* Separate current user section */
@@ -85,9 +128,9 @@ h2 {
   color: #555;
   font-size: 1em;
   font-weight: bold;
-  background-color: #f1f1f1; /* Light background for separation */
-  border: 1px solid #ccc; /* Border for distinction */
-  border-radius: 5px; /* Rounded corners */
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 5px;
   padding: 10px;
   width: 100%;
   max-width: 300px;
@@ -99,13 +142,12 @@ h2 {
   background-color: rgb(246, 199, 215);
   border: none;
   border-radius: 15px;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 550;
-  margin: 10px;
+  margin: 20px;
   transition-duration: 0.8s;
 }
 
 .backBtn button:hover {
   background-color: rgb(255, 230, 230);
-  /* cursor: pointer; */
 }

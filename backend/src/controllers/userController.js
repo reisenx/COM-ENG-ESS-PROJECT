@@ -49,6 +49,30 @@ export const getUserData = async (req, res) => {
   }
 };
 
+export const getLeaderboardData = async (req, res) => {
+  try {
+    // Call getUserData to get all users
+    const users = await User.find();
+
+    // Filter the results to include only username and score
+    const leaderboard = users
+      .map((user) => ({
+        username: user.username,
+        score: user.score,
+      }))
+      .sort((a, b) => b.score - a.score);
+
+    res.status(200).json({
+      status: "success",
+      data: {
+        entries: leaderboard,
+      },
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching leaderboard data" });
+  }
+};
+
 // Play the game
 export const playGame = async (req, res) => {
   const { username, choice } = req.body;
@@ -86,15 +110,5 @@ export const playGame = async (req, res) => {
     });
   } catch (error) {
     res.status(500).json({ message: "Error playing game" });
-  }
-};
-
-// Get leaderboard
-export const getLeaderboard = async (req, res) => {
-  try {
-    const leaderboard = await User.find().sort({ score: -1 }).limit(10);
-    res.status(200).json(leaderboard);
-  } catch (error) {
-    res.status(500).json({ message: "Error fetching leaderboard" });
   }
 };

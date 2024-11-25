@@ -1,7 +1,6 @@
 import cors from "cors";
 import express from "express";
 
-import LeaderboardRoute from "./routes/leaderboardRoute.js";
 import UserRoute from "./routes/userRoute.js";
 
 const app = express();
@@ -15,6 +14,5 @@ app.use(cors());
 
 // use routes
 app.use("/users", UserRoute);
-app.use("/leaderboard", LeaderboardRoute);
 
 export default app;
