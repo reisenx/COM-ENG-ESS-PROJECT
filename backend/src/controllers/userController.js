@@ -4,7 +4,7 @@ import User from "../models/userModel.js";
 export const handleUser = async (req, res) => {
   console.log("=== Debug Info ===");
   console.log("1. Raw Body:", req.body);
-  console.log("2. Content-Type:", req.headers['content-type']);
+  console.log("2. Content-Type:", req.headers["content-type"]);
   console.log("3. Action Type:", typeof req.body.action);
   console.log("4. Action Value:", req.body.action);
   console.log("================");
@@ -20,7 +20,7 @@ export const handleUser = async (req, res) => {
       console.log("Validation failed:", { username, action });
       return res.status(400).json({
         message: "Missing required fields",
-        received: { username, action }
+        received: { username, action },
       });
     }
 
@@ -31,7 +31,7 @@ export const handleUser = async (req, res) => {
       return res.status(400).json({
         message: "Invalid action",
         received: action,
-        valid: validActions
+        valid: validActions,
       });
     }
 
@@ -58,7 +58,7 @@ export const handleUser = async (req, res) => {
     if (action === "game") {
       console.log("Processing game action");
       console.log("Message:", message);
-      
+
       // Validate game message
       const validMessages = ["win", "lose", "draw"];
       if (!validMessages.includes(message)) {
@@ -66,7 +66,7 @@ export const handleUser = async (req, res) => {
         return res.status(400).json({
           message: "Invalid game message",
           received: message,
-          valid: validMessages
+          valid: validMessages,
         });
       }
 
@@ -78,32 +78,33 @@ export const handleUser = async (req, res) => {
       // Update score
       switch (message) {
         case "win":
-          user.score += 100;
+          user.score += 100 + user.consecutiveWins * 10;
+          user.consecutiveWins += 1;
           break;
         case "lose":
           user.score -= 50;
+          user.consecutiveWins = 0;
           break;
         case "draw":
-          // No score change
+          user.consecutiveWins = 0;
           break;
       }
 
       await user.save();
-      return res.status(200).json({ 
+      return res.status(200).json({
         message: "Game result recorded",
-        newScore: user.score
+        newScore: user.score,
       });
     }
 
     // If we get here, something went wrong
     return res.status(400).json({ message: "Invalid action" });
-    
   } catch (error) {
     console.error("Error in handleUser:", error);
-    return res.status(500).json({ 
+    return res.status(500).json({
       message: "Server error",
       error: error.message,
-      stack: error.stack 
+      stack: error.stack,
     });
   }
 };
