@@ -1,3 +1,31 @@
+import { getUserData } from "./api.js";
+
+document.addEventListener("DOMContentLoaded", async () => {
+  const usernameSpan = document.getElementById("username");
+  const scoreSpan = document.getElementById("score");
+
+  const username = localStorage.getItem("username"); // Retrieve username from local storage
+  console.log("Retrieved username from local storage:", username); // Debug log
+
+  if (username) {
+    try {
+      const userData = await getUserData(username); // Pass username to getUserData
+      console.log("Fetched user data:", userData); // Debug log
+
+      // Find the user object that matches the username
+      const user = userData.find((user) => user.username === username);
+      console.log("Fetched user data:", user); // Debug log
+
+      usernameSpan.textContent = user.username;
+      scoreSpan.textContent = user.score;
+    } catch (error) {
+      console.error("Error fetching user data", error);
+    }
+  } else {
+    console.error("No username found in local storage");
+  }
+});
+
 const choices = document.querySelectorAll(".choices");
 const resultDisplay = document.getElementById("result");
 //initial pic
@@ -44,6 +72,7 @@ function animateComputerChoice(playerChoice) {
     enableChoices();
   }, 1000);
 }
+
 function disableChoices() {
   choices.forEach((choice) => {
     choice.disabled = true;
@@ -57,6 +86,7 @@ function enableChoices() {
     choice.classList.remove("disabled");
   });
 }
+
 function determineWinner(player, computer) {
   if (player === computer) {
     return "It's a tie!";
@@ -70,4 +100,3 @@ function determineWinner(player, computer) {
   }
   return "You Lose!";
 }
-// I changed the filename motherfucker

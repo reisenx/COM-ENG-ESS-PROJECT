@@ -8,6 +8,18 @@
 
   <body>
     <div class="lobby-container">
+      <div class="top-right">
+        <div>Username: <span id="username">Player1</span></div>
+      </div>
+      <div class="middle-right-container">
+        <div class="score-container">
+          <div>Total Score</div>
+          <div><span id="score">0</span></div>
+        </div>
+      </div>
+      <div class="middle-left">
+        <div id="game-result"></div>
+      </div>
       <div class="bot-container">
         <div class="lobby-header">It is a never ending fight</div>
         <div id="result"></div>
@@ -26,6 +38,7 @@
         </div>
       </div>
     </div>
+    <a href="home.html" class="back-button">Back</a>
     <script type="module" src="scripts/mouseMove.js"></script>
     <script src="scripts/lobby.js"></script>
   </body>
