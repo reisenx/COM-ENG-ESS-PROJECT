@@ -1,4 +1,4 @@
-import { getUserData } from "./api.js";
+import { getUserData, sendGameResult } from "./api.js"; // Import the new method
 
 document.addEventListener("DOMContentLoaded", async () => {
   const usernameSpan = document.getElementById("username");
@@ -55,7 +55,7 @@ function animateComputerChoice(playerChoice) {
     animationIndex = (animationIndex + 1) % choicesArray.length;
   }, 50);
 
-  setTimeout(() => {
+  setTimeout(async () => {
     clearInterval(animationInterval);
 
     const computerChoice =
@@ -68,6 +68,18 @@ function animateComputerChoice(playerChoice) {
 
     const resultText = `You chose ${playerChoice}, computer chose ${computerChoice}. ${winner}`;
     resultContext.innerHTML = resultText;
+
+    const username = localStorage.getItem("username"); // Retrieve username from local storage
+    if (username) {
+      try {
+        console.log("About to send game result:", { username, winner });
+        await sendGameResult(username, winner);
+      } catch (error) {
+        console.error("Error sending game result", error);
+      }
+    } else {
+      console.error("No username found in local storage");
+    }
 
     enableChoices();
   }, 1000);
@@ -98,5 +110,5 @@ function determineWinner(player, computer) {
   ) {
     return "You win!";
   }
-  return "You Lose!";
+  return "You lose!";
 }
