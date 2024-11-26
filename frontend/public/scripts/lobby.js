@@ -66,19 +66,52 @@ function animateComputerChoice(playerChoice) {
 
     const winner = determineWinner(playerChoice, computerChoice);
 
-    const resultText = `You chose ${playerChoice}, computer chose ${computerChoice}. ${winner}`;
+    // Convert winner message to display format
+    let displayMessage;
+    switch(winner) {
+      case "draw":
+        displayMessage = "It's a tie!";
+        break;
+      case "win":
+        displayMessage = "You win!";
+        break;
+      case "lose":
+        displayMessage = "You lose!";
+        break;
+    }
+
+    const resultText = `You chose ${playerChoice}, computer chose ${computerChoice}. ${displayMessage}`;
     resultContext.innerHTML = resultText;
 
-    const username = localStorage.getItem("username"); // Retrieve username from local storage
+    const username = localStorage.getItem("username");
     if (username) {
       try {
-        console.log("About to send game result:", { username, winner });
-        await sendGameResult(username, winner);
+        // Validate the winner value before sending
+        if (!["win", "lose", "draw"].includes(winner)) {
+          throw new Error(`Invalid winner value: ${winner}`);
+        }
+        
+        console.log("Sending validated game result:", {
+          username,
+          winner,
+          action: "game"
+        });
+        
+        const result = await sendGameResult(username, winner);
+        console.log("Game result successfully sent:", result);
+        
+        // Update score display
+        const scoreSpan = document.getElementById("score");
+        if (scoreSpan) {
+          const userData = await getUserData(username);
+          const user = userData.find(u => u.username === username);
+          if (user) {
+            scoreSpan.textContent = user.score;
+          }
+        }
       } catch (error) {
-        console.error("Error sending game result", error);
+        console.error("Error processing game result:", error);
       }
-    } else {
-      console.error("No username found in local storage");
     }
 
     enableChoices();
@@ -101,14 +134,14 @@ function enableChoices() {
 
 function determineWinner(player, computer) {
   if (player === computer) {
-    return "It's a tie!";
+    return "draw";
   }
   if (
     (player === "rock" && computer === "scissors") ||
     (player === "paper" && computer === "rock") ||
     (player === "scissors" && computer === "paper")
   ) {
-    return "You win!";
+    return "win";
   }
-  return "You lose!";
+  return "lose";
 }

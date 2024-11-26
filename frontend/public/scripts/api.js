@@ -1,5 +1,7 @@
 import { BACKEND_URL } from "./config.js"; // Adjust the path if necessary
 
+console.log("Backend URL:", BACKEND_URL);
+
 const loginUser = async (username) => {
   try {
     const payload = { username, action: "login" };
@@ -86,51 +88,38 @@ const getLeaderboardData = async () => {
 
 const sendGameResult = async (username, message) => {
   try {
-    let normalizedMessage = message;
-    switch (message) {
-      case "It's a tie!":
-        normalizedMessage = "It's a draw!";
-        break;
-      case "You win!":
-        normalizedMessage = "You win!";
-        break;
-      case "You lose!":
-        normalizedMessage = "You lose!";
-        break;
-      default:
-        console.error("Unexpected message:", message);
-        throw new Error("Invalid message format");
-    }
-
     const payload = { 
-      username, 
-      message: normalizedMessage, 
+      username: username.trim(), 
+      message: message.trim(),
       action: "game"
     };
-    console.log("Sending game result with payload:", payload);
-    console.log("To URL:", `${BACKEND_URL}/users`);
+    
+    console.log("Sending game result with exact payload:", JSON.stringify(payload));
     
     const response = await fetch(`${BACKEND_URL}/users`, {
       method: "POST",
       headers: {
+        "Accept": "application/json",
         "Content-Type": "application/json",
       },
       body: JSON.stringify(payload),
     });
-
-    console.log("Response status:", response.status);
-    const data = await response.json();
-    console.log("Response data:", data);
     
+    console.log("Complete response:", {
+      status: response.status,
+      statusText: response.statusText,
+      headers: Object.fromEntries([...response.headers]),
+    });
+
+    const data = await response.json();
     if (!response.ok) {
-      console.error("Server response:", data);
+      console.error("Server error response:", data);
       throw new Error(JSON.stringify(data));
     }
 
-    console.log("Game result sent successfully:", data);
     return data;
   } catch (error) {
-    console.error("Error sending game result:", error);
+    console.error("Error in sendGameResult:", error);
     throw error;
   }
 };
