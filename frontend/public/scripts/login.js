@@ -34,11 +34,11 @@ document.addEventListener("DOMContentLoaded", () => {
         loginResponse.textContent = "Account created. Please login.";
         loginResponse.style.visibility = "visible";
       } catch (error) {
-        loginResponse.textContent = "The username has already been used";
+        loginResponse.textContent = "The username has already been taken.";
         loginResponse.style.visibility = "visible";
       }
     } else {
-      loginResponse.textContent = "Username cannot be empty";
+      loginResponse.textContent = "Username cannot be empty.";
       loginResponse.style.visibility = "visible";
     }
   });
