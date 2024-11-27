@@ -1,0 +1,18 @@
+audio {
+    display: none;
+  }
+  #muteBtn {
+    width: 20%;
+    height: 40px;
+    background-color: rgb(246, 199, 215);
+    border: none;
+    border-radius: 15px;
+    font-size: 16px;
+    font-weight: 550;
+    /* margin: 2px; */
+    transition-duration: 0.8s;
+  }
+  #muteBtn:hover {
+    background-color: rgb(255, 230, 230);
+    /* cursor: pointer; */
+  }

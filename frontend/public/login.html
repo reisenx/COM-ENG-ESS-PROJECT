@@ -4,35 +4,45 @@
     <meta charset="UTF-8" />
     <title>RPS Login</title>
     <link rel="stylesheet" href="styles/loginStyle.css" />
+    <link rel="stylesheet" href="styles/bgmBtn.css" />
   </head>
   <body>
-    <div class="container">
-      <div id="MainPageGamesPics">
-        <img
-          src="res/RockPaperSciGO.png"
-          alt="Game Logo"
-          width="550"
-          height="550"
-          id="RPSG"
-        />
-      </div>
-      <div class="login_">
-        <h1>Enter Your Name</h1>
-        <div class="input-box">
-          <input placeholder="Username" type="text" id="username_" />
+    
+    <!-- <audio id="bgm" autoplay loop>
+      <source src="res/Sound/BGM.mp3" type="audio/mpeg">
+    </audio> -->
+    <div class="Outer">
+      <div class="container">
+        <div id="MainPageGamesPics">
+          <img
+            src="res/RockPaperSciGO.png"
+            alt="Game Logo"
+            width="550"
+            height="550"
+            id="RPSG"
+          />
         </div>
+        <div class="login_">
+          <h1>Enter Your Name</h1>
+          <div class="input-box">
+            <input placeholder="Username" type="text" id="username_" />
+          </div>
 
-        <div class="loginBtn">
-          <button id="LoginButton">Login</button>
-          <button id="RegisterButton">Register</button>
+          <div class="loginBtn">
+            <button id="LoginButton">Login</button>
+            <button id="RegisterButton">Register</button>
+          </div>
+          
+          <div class="loginResponse">
+            <h3></h3>
+          </div>
         </div>
-
-        <div class="loginResponse">
-          <h3></h3>
-        </div>
+        
       </div>
+      <button id="muteBtn">Mute</button>
     </div>
     <script type="module" src="scripts/login.js"></script>
+    <script type="module" src="scripts/bgm.js"></script>
     <script type="module" src="scripts/mouseMove.js"></script>
   </body>
 </html>

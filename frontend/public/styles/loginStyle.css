@@ -18,6 +18,12 @@ body {
   background-position: center;
   overflow: hidden;
 }
+.Outer{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
 .container {
   display: flex;
   align-items: center;
@@ -108,3 +114,4 @@ body {
   margin: 0;
   visibility: hidden;
 }
+
