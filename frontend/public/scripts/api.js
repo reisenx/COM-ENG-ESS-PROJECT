@@ -129,6 +129,5 @@ export {
   getUserData,
   loginUser,
   registerUser,
-  sendGameResult,
+  sendGameResult
 };
-

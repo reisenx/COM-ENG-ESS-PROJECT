@@ -17,4 +17,3 @@ router.post("/", userController.handleUser);
 router.get("/", userController.getUsers);
 
 export default router;
-
