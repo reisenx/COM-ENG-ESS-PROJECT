@@ -151,3 +151,116 @@ h2 {
 .backBtn button:hover {
   background-color: rgb(255, 230, 230);
 }
+
+
+@media (max-width: 1024px) {
+  body {
+    background-size: cover;
+    padding: 10px;
+  }
+
+  .container {
+    margin-top: 10px;
+  }
+
+  .leaderboard {
+    width: 90%; /* Reduce width for smaller screens */
+  }
+
+  h2 {
+    font-size: 1.5em; /* Adjust heading size */
+  }
+
+  #leaderboard-list li {
+    font-size: 0.9em; /* Reduce list font size */
+  }
+
+  .current-user-container {
+    max-width: 250px;
+    font-size: 0.9em;
+  }
+
+  .backBtn button {
+    width: 80px;
+    height: 35px;
+    font-size: 14px;
+  }
+}
+
+/* responsive */
+/* For screens smaller than 768px (tablets and large phones) */
+@media (max-width: 768px) {
+  .leaderboard {
+    height: auto; 
+    padding: 8px;
+  }
+
+  .leaderboard th, .leaderboard td {
+    font-size: 0.9em;
+  }
+
+  #leaderboard-list li {
+    flex-direction: column; 
+    align-items: flex-start;
+  }
+
+  #leaderboard-list li span {
+    text-align: left;
+    flex: unset;
+    width: 100%; 
+  }
+
+  h2 {
+    font-size: 1.2em;
+  }
+
+  .current-user-container {
+    max-width: 90%;
+    padding: 8px;
+  }
+
+  .backBtn button {
+    width: 70px;
+    height: 30px;
+    font-size: 12px;
+  }
+}
+
+/* For screens smaller than 480px (mobile phones) */
+@media (max-width: 480px) {
+  body {
+    flex-direction: column;
+    padding: 5px;
+  }
+
+  h2 {
+    font-size: 1em;
+    margin-bottom: 5px;
+  }
+
+  .leaderboard {
+    width: 100%;
+    /* box-shadow: none; */
+    padding: 5px;
+  }
+
+  .leaderboard th, .leaderboard td {
+    font-size: 0.8em;
+  }
+
+  #leaderboard-list li {
+    font-size: 0.8em;
+    padding: 5px;
+  }
+
+  .current-user-container {
+    font-size: 0.8em;
+    padding: 5px;
+  }
+
+  .backBtn button {
+    width: 60px;
+    height: 28px;
+    font-size: 10px;
+  }
+}

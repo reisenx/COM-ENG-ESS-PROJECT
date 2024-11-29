@@ -115,3 +115,54 @@ body {
   visibility: hidden;
 }
 
+@media (max-width: 1024px) {
+  body {
+    background-size: cover; /* Scale background better */
+    padding: 10px;
+  }
+  .Outer {
+    gap: 15px; /* Reduce spacing */
+  }
+  .login_ {
+    width: 350px; /* Shrink form width */
+  }
+  .login_ h1 {
+    font-size: 28px; /* Reduce heading size */
+  }
+}
+
+/* For screens smaller than 768px (tablets and large phones) */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Stack items vertically */
+    gap: 10px; /* Reduce gap between items */
+  }
+  #MainPageGamesPics img {
+    max-width: 80%; /* Shrink image size */
+  }
+  .loginBtn button {
+    width: 100%; 
+    margin: 5px 0;
+  }
+}
+
+/* For screens smaller than 480px (mobile phones) */
+@media (max-width: 480px) {
+  body {
+    flex-direction: column; /* Stack elements */
+    padding: 5px;
+  }
+  .login_ {
+    width: 90%; /* Use most of the screen width */
+  }
+  .login_ h1 {
+    font-size: 24px;
+  }
+  .input-box input {
+    font-size: 14px;
+    padding: 5px 10px; 
+  }
+  .loginBtn button {
+    font-size: 14px; 
+  }
+}

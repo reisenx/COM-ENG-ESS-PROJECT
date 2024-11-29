@@ -113,3 +113,118 @@ body {
   background-color: rgb(255, 230, 230);
   /* cursor: pointer; */
 }
+
+
+/* responsive */
+/* For screens smaller than 1024px (small laptops or tablets) */
+@media (max-width: 1024px) {
+  body {
+    background-size: cover;
+    padding: 10px;
+  }
+
+  .Outer {
+    gap: 15px; 
+  }
+
+  .header {
+    top: 5px;
+    right: 5px;
+    gap: 10px; 
+  }
+
+  .welcome-message {
+    font-size: 28px; 
+    margin-bottom: 15px;
+  }
+
+  .menuBtn button {
+    width: 180px;
+    height: 50px; 
+    font-size: 20px; 
+  }
+
+  #logoutButton {
+    font-size: 14px; 
+    padding: 8px 15px;
+  }
+
+  #MainPageGamesPics img {
+    /* animation: none;  */
+    max-width: 90%; 
+  }
+}
+
+/* For screens smaller than 768px (tablets and large phones) */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .welcome-message {
+    font-size: 24px; 
+    text-align: center;
+  }
+
+  .menu {
+    align-items: center; 
+  }
+
+  .menuBtn button {
+    width: 160px;
+    height: 45px; 
+    font-size: 18px;
+  }
+
+  #logoutButton {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  #MainPageGamesPics {
+    margin-right: 0; 
+  }
+
+  #MainPageGamesPics img {
+    max-width: 80%; 
+  }
+}
+
+/* For screens smaller than 480px (mobile phones) */
+@media (max-width: 480px) {
+  body {
+    flex-direction: column;
+    padding: 5px;
+  }
+
+  .Outer {
+    gap: 10px; 
+  }
+
+  .header {
+    gap: 5px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .welcome-message {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .menuBtn button {
+    width: 140px;
+    height: 40px; 
+    font-size: 16px;
+  }
+
+  #logoutButton {
+    font-size: 10px;
+    padding: 5px 8px;
+  }
+
+  #MainPageGamesPics img {
+    max-width: 100%; 
+  }
+}

@@ -16,3 +16,11 @@ audio {
     background-color: rgb(255, 230, 230);
     /* cursor: pointer; */
   }
+
+  @media (max-width: 768px) {
+    #muteBtn {
+        width: 50%;
+        height: 35px;
+        font-size: 14px;
+    }
+}
