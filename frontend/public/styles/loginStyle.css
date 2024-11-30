@@ -6,41 +6,35 @@
   box-sizing: border-box;
   font-family: "Mitr", sans-serif;
 }
-
 body {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  /* background-color: rgb(245, 255, 240); */
   background-image: url("../res/LoginBG.png");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 110%;
   background-position: center;
   overflow: hidden;
-  padding: 10px; 
 }
-
-.Outer {
+.Outer{
   display: flex;
   align-items: center;
   flex-direction: column;
   gap: 20px;
 }
-
 .container {
   display: flex;
   align-items: center;
-  flex-wrap: wrap; 
   gap: 20px;
 }
-
 #MainPageGamesPics img {
   max-width: 100%;
   height: auto;
   margin-bottom: 0px;
   animation: scaleCycle 1s infinite;
 }
-
 @keyframes scaleCycle {
   0% {
     transform: scale(1);
@@ -52,75 +46,61 @@ body {
     transform: scale(1);
   }
 }
-
 #MainPageGamesPics {
   align-self: normal;
 }
-
 .login_ {
-  width: 400px;
-  max-width: 100%; 
+  width: 420px;
   background: rgb(218, 225, 255);
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  border-radius: 5px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
-
 .login_ h1 {
-  font-size: 32px;
+  font-size: 36px;
   text-align: center;
-  margin-bottom: 20px;
 }
-
 .login_ .input-box {
   width: 100%;
-  height: 40px;
-  margin: 15px 0px;
+  height: 30px;
+  margin: 10px 0px;
 }
-
 .input-box input {
   width: 100%;
   height: 100%;
   background-color: aliceblue;
   border: none;
   outline: none;
-  border: 2px solid rgba(200, 200, 200, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.2);
   border-radius: 10px;
   font-size: 15px;
-  padding: 0px 15px;
-  transition: border-color 0.3s;
+  padding: 0px 15px 0px 15px;
 }
-
-.input-box input:focus {
-  border-color: #80a4ff; 
-}
-
 .input-box input::placeholder {
   color: rgb(133, 137, 141);
 }
-
 .loginBtn {
   display: flex;
-  flex-wrap: wrap; 
   justify-content: space-between;
-  gap: 10px; 
 }
 
 .loginBtn button {
-  flex: 1 1 48%; 
+  width: 48%;
   height: 40px;
   background-color: rgb(246, 199, 215);
   border: none;
-  border-radius: 10px;
+  border-radius: 15px;
   font-size: 16px;
-  font-weight: 600;
-  transition: background-color 0.3s, transform 0.3s;
+  font-weight: 550;
+  margin: 2px;
+  transition-duration: 0.8s;
 }
 
 .loginBtn button:hover {
   background-color: rgb(255, 230, 230);
-  transform: scale(1.05); 
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .loginResponse {
@@ -137,45 +117,46 @@ body {
 
 @media (max-width: 1024px) {
   body {
-    background-size: cover; 
+    background-size: cover; /* Scale background better */
     padding: 10px;
   }
   .Outer {
-    gap: 15px; 
+    gap: 15px; /* Reduce spacing */
   }
   .login_ {
-    width: 90%; 
+    width: 350px; /* Shrink form width */
   }
   .login_ h1 {
-    font-size: 28px; 
+    font-size: 28px; /* Reduce heading size */
   }
 }
 
+/* For screens smaller than 768px (tablets and large phones) */
 @media (max-width: 768px) {
   .container {
-    flex-direction: column; 
-    gap: 15px; 
+    flex-direction: column; /* Stack items vertically */
+    gap: 10px; /* Reduce gap between items */
   }
   #MainPageGamesPics img {
-    max-width: 80%; 
+    max-width: 80%; /* Shrink image size */
   }
   .loginBtn button {
-    flex: 1 1 100%; 
-    margin: 5px 0; 
+    width: 100%; 
+    margin: 5px 0;
   }
 }
 
+/* For screens smaller than 480px (mobile phones) */
 @media (max-width: 480px) {
   body {
-    flex-direction: column; 
+    flex-direction: column; /* Stack elements */
     padding: 5px;
   }
   .login_ {
-    width: 90%; 
-    padding: 15px; 
+    width: 90%; /* Use most of the screen width */
   }
   .login_ h1 {
-    font-size: 24px; 
+    font-size: 24px;
   }
   .input-box input {
     font-size: 14px;
@@ -183,6 +164,5 @@ body {
   }
   .loginBtn button {
     font-size: 14px; 
-    height: 35px;
   }
 }

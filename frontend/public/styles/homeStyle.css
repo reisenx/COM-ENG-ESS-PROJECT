@@ -11,17 +11,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column; 
   min-height: 100vh;
   background-image: url("../res/LoginBG.png");
   background-repeat: no-repeat;
-  background-size: cover; 
+  background-size: 110%;
   background-position: center;
   overflow: hidden;
-  padding: 10px; 
 }
-
-.Outer {
+.Outer{
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -34,14 +31,13 @@ body {
   right: 10px;
   display: flex;
   align-items: center;
-  gap: 15px;
-  flex-wrap: wrap; 
+  gap: 20px;
 }
 
 .welcome-message {
   text-align: center;
   color: #333;
-  font-size: 28px;
+  font-size: 32px;
   margin-bottom: 20px;
 }
 
@@ -50,12 +46,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-right: 20px;
 }
 
 #MainPageGamesPics img {
   max-width: 100%;
   height: auto;
-  animation: scaleCycle 1s infinite; 
+  margin-bottom: 0px;
+  animation: scaleCycle 1s infinite;
 }
 
 @keyframes scaleCycle {
@@ -74,7 +72,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap; 
 }
 
 .menu {
@@ -83,25 +80,23 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 15px; 
 }
 
 .menuBtn button {
-  width: 220px;
+  width: 215px;
   height: 60px;
   background-color: rgb(246, 199, 215);
   border: none;
   border-radius: 15px;
-  font-size: 22px;
-  font-weight: 600;
+  font-size: 24px;
+  font-weight: 550;
   margin: 2px;
-  transition: transform 0.3s, background-color 0.3s;
+  transition-duration: 0.8s;
 }
 
 .menuBtn button:hover {
   background-color: rgb(255, 230, 230);
-  transform: scale(1.05); 
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 #logoutButton {
@@ -109,65 +104,76 @@ body {
   border: none;
   border-radius: 15px;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 550;
   padding: 10px 20px;
-  transition: transform 0.3s, background-color 0.3s;
+  transition-duration: 0.8s;
 }
 
 #logoutButton:hover {
   background-color: rgb(255, 230, 230);
-  transform: scale(1.05); 
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
+
+/* responsive */
+/* For screens smaller than 1024px (small laptops or tablets) */
 @media (max-width: 1024px) {
+  body {
+    background-size: cover;
+    padding: 10px;
+  }
+
   .Outer {
-    gap: 15px;
+    gap: 15px; 
   }
 
   .header {
     top: 5px;
     right: 5px;
-    gap: 10px;
-    flex-wrap: wrap; 
+    gap: 10px; 
   }
 
   .welcome-message {
-    font-size: 26px;
+    font-size: 28px; 
     margin-bottom: 15px;
   }
 
   .menuBtn button {
-    width: 200px;
-    height: 55px;
-    font-size: 20px;
+    width: 180px;
+    height: 50px; 
+    font-size: 20px; 
   }
 
   #logoutButton {
-    font-size: 14px;
+    font-size: 14px; 
     padding: 8px 15px;
   }
 
   #MainPageGamesPics img {
-    max-width: 90%;
+    /* animation: none;  */
+    max-width: 90%; 
   }
 }
 
+/* For screens smaller than 768px (tablets and large phones) */
 @media (max-width: 768px) {
   .header {
     flex-direction: column;
     align-items: flex-end;
-    gap: 10px;
   }
 
   .welcome-message {
-    font-size: 24px;
+    font-size: 24px; 
     text-align: center;
   }
 
+  .menu {
+    align-items: center; 
+  }
+
   .menuBtn button {
-    width: 180px;
-    height: 50px;
+    width: 160px;
+    height: 45px; 
     font-size: 18px;
   }
 
@@ -176,24 +182,30 @@ body {
     padding: 6px 10px;
   }
 
+  #MainPageGamesPics {
+    margin-right: 0; 
+  }
+
   #MainPageGamesPics img {
-    max-width: 85%;
+    max-width: 80%; 
   }
 }
 
+/* For screens smaller than 480px (mobile phones) */
 @media (max-width: 480px) {
   body {
+    flex-direction: column;
     padding: 5px;
   }
 
   .Outer {
-    gap: 10px;
+    gap: 10px; 
   }
 
   .header {
-    flex-direction: column;
-    align-items: center;
     gap: 5px;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .welcome-message {
@@ -202,8 +214,8 @@ body {
   }
 
   .menuBtn button {
-    width: 160px;
-    height: 45px;
+    width: 140px;
+    height: 40px; 
     font-size: 16px;
   }
 
@@ -213,7 +225,6 @@ body {
   }
 
   #MainPageGamesPics img {
-    max-width: 100%;
-    height: auto;
+    max-width: 100%; 
   }
 }
