@@ -1,26 +1,38 @@
 audio {
-    display: none;
-  }
-  #muteBtn {
-    width: 20%;
-    height: 40px;
-    background-color: rgb(246, 199, 215);
-    border: none;
-    border-radius: 15px;
-    font-size: 16px;
-    font-weight: 550;
-    /* margin: 2px; */
-    transition-duration: 0.8s;
-  }
-  #muteBtn:hover {
-    background-color: rgb(255, 230, 230);
-    /* cursor: pointer; */
-  }
+  display: none;
+}
 
-  @media (max-width: 768px) {
-    #muteBtn {
-        width: 50%;
-        height: 35px;
-        font-size: 14px;
-    }
+#muteBtn {
+  width: 20%; 
+  height: 40px;
+  background-color: rgb(246, 199, 215);
+  border: none;
+  border-radius: 15px;
+  font-size: 16px;
+  font-weight: 550;
+  text-align: center; 
+  transition: background-color 0.3s, transform 0.3s; 
+}
+
+#muteBtn:hover {
+  background-color: rgb(255, 230, 230);
+  transform: scale(1.05); 
+  cursor: pointer; 
+}
+
+@media (max-width: 768px) {
+  #muteBtn {
+    width: 50%; 
+    height: 35px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  #muteBtn {
+    width: 80%; 
+    height: 30px; 
+    font-size: 12px; 
+    border-radius: 10px; 
+  }
 }
