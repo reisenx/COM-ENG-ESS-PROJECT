@@ -53,7 +53,7 @@ h2 {
 }
 
 .leaderboard {
-  width: 500px;
+  width: 50vw;
   height: calc(5 * 48px);
   overflow-y: auto;
   border: 1px solid #ccc;
@@ -70,7 +70,7 @@ h2 {
 }
 
 .leaderboard table {
-  width: 100%;
+  width: 500px;
   border-collapse: collapse;
 }
 
@@ -154,113 +154,49 @@ h2 {
 
 
 @media (max-width: 1024px) {
-  body {
-    background-size: cover;
-    padding: 10px;
-  }
-
-  .container {
-    margin-top: 10px;
-  }
-
   .leaderboard {
-    width: 90%; /* Reduce width for smaller screens */
+    width: 70vw; 
+    height: 30vh; 
   }
 
   h2 {
-    font-size: 1.5em; /* Adjust heading size */
+    font-size: 1.8em; 
   }
 
   #leaderboard-list li {
-    font-size: 0.9em; /* Reduce list font size */
-  }
-
-  .current-user-container {
-    max-width: 250px;
-    font-size: 0.9em;
+    font-size: 0.9em; 
   }
 
   .backBtn button {
-    width: 80px;
+    width: 90px; 
     height: 35px;
     font-size: 14px;
   }
 }
 
-/* responsive */
-/* For screens smaller than 768px (tablets and large phones) */
-@media (max-width: 768px) {
+/* Media query for mobile phones */
+@media (max-width: 600px) {
   .leaderboard {
-    height: auto; 
-    padding: 8px;
+    width: 90vw;
+    height: 70vh;
   }
 
-  .leaderboard th, .leaderboard td {
+  h2 {
+    font-size: 1.5em; 
+  }
+
+  #leaderboard-list li {
+    font-size: 0.8em; 
+  }
+
+  .current-user-container {
+    max-width: 100%; 
     font-size: 0.9em;
   }
 
-  #leaderboard-list li {
-    flex-direction: column; 
-    align-items: flex-start;
-  }
-
-  #leaderboard-list li span {
-    text-align: left;
-    flex: unset;
-    width: 100%; 
-  }
-
-  h2 {
-    font-size: 1.2em;
-  }
-
-  .current-user-container {
-    max-width: 90%;
-    padding: 8px;
-  }
-
   .backBtn button {
-    width: 70px;
+    width: 80px; 
     height: 30px;
     font-size: 12px;
-  }
-}
-
-/* For screens smaller than 480px (mobile phones) */
-@media (max-width: 480px) {
-  body {
-    flex-direction: column;
-    padding: 5px;
-  }
-
-  h2 {
-    font-size: 1em;
-    margin-bottom: 5px;
-  }
-
-  .leaderboard {
-    width: 100%;
-    /* box-shadow: none; */
-    padding: 5px;
-  }
-
-  .leaderboard th, .leaderboard td {
-    font-size: 0.8em;
-  }
-
-  #leaderboard-list li {
-    font-size: 0.8em;
-    padding: 5px;
-  }
-
-  .current-user-container {
-    font-size: 0.8em;
-    padding: 5px;
-  }
-
-  .backBtn button {
-    width: 60px;
-    height: 28px;
-    font-size: 10px;
   }
 }
